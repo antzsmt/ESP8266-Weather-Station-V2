@@ -12,8 +12,8 @@
 
 // ST7735 TFT module connections
 #define TFT_RST   D4     // TFT RST pin is connected to NodeMCU pin D4 (GPIO2)
-#define TFT_CS    D3     // TFT CS  pin is connected to NodeMCU pin D4 (GPIO0)
-#define TFT_DC    D2     // TFT DC  pin is connected to NodeMCU pin D4 (GPIO4)
+#define TFT_CS    D3     // TFT CS  pin is connected to NodeMCU pin D3 (GPIO0)
+#define TFT_DC    D2     // TFT DC  pin is connected to NodeMCU pin D2 (GPIO4)
 
 Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_RST);
 
@@ -350,9 +350,10 @@ void loop() {
 }
 
 String httpGETRequest(const char* serverName) {
+  WiFiClient client;
   HTTPClient http;
-     
-  http.begin(serverName);
+  
+  http.begin(client, serverName);
   
   int httpResponseCode = http.GET();
   
