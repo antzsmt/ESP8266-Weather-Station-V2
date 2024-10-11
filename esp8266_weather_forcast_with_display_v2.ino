@@ -238,9 +238,10 @@ void setup(void) {
     tft.setCursor(55,31);
     tft.print(countryCode);
     
-    
-    tft.setCursor(100,29);
-    tft.print(" C");
+    tft.setCursor(100,26);
+    tft.print("\370");
+    tft.setCursor(106,29);
+    tft.print("C");
 
     tft.setTextColor(0x07FF);
     tft.setFont(&FreeSans9pt7b);
