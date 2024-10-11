@@ -92,8 +92,10 @@ void loop() {
 }
 
 String httpGETRequest(const char* serverName) {
-  HTTPClient http; 
-  http.begin(serverName);
+  WiFiClient client;
+  HTTPClient http;
+  
+  http.begin(client, serverName);
   
   int httpResponseCode = http.GET();
   
